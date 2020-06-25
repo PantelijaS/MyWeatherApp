@@ -10,7 +10,7 @@ public class Common {
 
     public static String convertToDate (long dateParams){
         Date date = new Date(dateParams*1000l);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEEE mm yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEEE mm  yyyy");
         String format = simpleDateFormat.format(date);
         return format;
     }
@@ -18,6 +18,13 @@ public class Common {
     public static String convertToTime (long timeParams){
         Date date = new Date(timeParams*1000l);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+        String format = simpleDateFormat.format(date);
+        return format;
+    }
+
+    public static String convertToDateForecast (long dateParams){
+        Date date = new Date(dateParams*1000l);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM  ");
         String format = simpleDateFormat.format(date);
         return format;
     }

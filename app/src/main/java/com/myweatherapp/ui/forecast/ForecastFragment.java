@@ -39,9 +39,6 @@ public class ForecastFragment extends Fragment {
 
     private Unbinder unbinder;
 
-    @BindView(R.id.text_city_name)
-    TextView text_city_name;
-
     @BindView(R.id.recycleview_forcast)
     public RecyclerView recyclerView;
 
@@ -69,7 +66,6 @@ public class ForecastFragment extends Fragment {
                 .subscribe(new Consumer<Forcast>() {
                     @Override
                     public void accept(Forcast forcast) throws Exception {
-                        text_city_name.setText(forcast.city.name);
                         forcastAdapter = new ForecastAdapter(getActivity(),forcast);
                         recyclerView.setAdapter(forcastAdapter);
                         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -78,7 +74,7 @@ public class ForecastFragment extends Fragment {
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
-                    Log.e("greska",throwable.getMessage());
+                    Log.e("error",throwable.getMessage());
                     }
                 }));
     }

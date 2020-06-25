@@ -9,26 +9,18 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-
 import com.myweatherapp.Common;
 import com.myweatherapp.R;
-import com.myweatherapp.model.Coord;
-import com.myweatherapp.model.Weather;
 import com.myweatherapp.model.WeatherModel;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
 import com.squareup.picasso.Picasso;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -97,22 +89,17 @@ public class HomeFragment extends Fragment {
                 .subscribe(new Consumer<WeatherModel>() {
                     @Override
                     public void accept(WeatherModel weatherModel) throws Exception {
-                        Log.e("city_name",weatherModel.getName());
                         //load icon
-//                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
-//                                .append(weatherModel.getWeathers().get(0).getIcon())
-//                                .append(".png").toString()).into(img_weather);
+                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/wn/")
+                                .append(weatherModel.getWeathers().get(0).getIcon())
+                                .append(".png").toString()).into(img_weather);
 
-                        String url = "https://openweathermap.org/img/wn/01d@2x.png";
-
-
-                        Picasso.get().load(url).into(img_weather);
                         text_city_name.setText(weatherModel.getName());
                         text_city_time.setText(Common.convertToDate(weatherModel.getDt()));
                         text_city_temperature.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getTemp())).append(" °C"));
                         text_city_description.setText(new StringBuilder("Weather in ").append(weatherModel.getName()).toString());
-                        text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getPressure())).append(" hpa").toString());
-                        text_city_humidity.setText(new StringBuilder(weatherModel.getMain().getHumidity()).append(" %").toString());
+                        text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getPressure())).append(" hpa"));
+                        text_city_humidity.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getHumidity())).append(" %"));
                         text_city_sunrise.setText(Common.convertToTime(weatherModel.getSys().getSunrise()));
                         text_city_sunset.setText(Common.convertToTime(weatherModel.getSys().getSunset()));
 //                        text_city_wind.setText(weatherModel.getWind().getSpeed());

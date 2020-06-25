@@ -43,6 +43,7 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Recycl
             holder.text_day.setText(new StringBuilder(Common.convertToDate(getForcastModel.list.get(position).dt)));
             holder.text_temperature.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.getTemp())).append(" °C"));
             holder.text_description.setText(getForcastModel.list.get(position).weather.get(0).getDescription());
+            holder.text_rain.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.getTemp())).append(" %"));
         }
 
         @Override
@@ -60,6 +61,8 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Recycl
             ImageView imageViewForcast;
             @BindView(R.id.text_description)
             TextView text_description;
+            @BindView(R.id.text_humidity)
+            TextView text_rain;
 
             public RecyclerViewHolder(View itemView) {
                 super(itemView);

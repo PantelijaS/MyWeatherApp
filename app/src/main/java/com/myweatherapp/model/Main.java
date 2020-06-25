@@ -7,7 +7,7 @@ public class Main {
     private double temp_min;
     private double temp_max;
     private int pressure;
-    private int  humidity;
+    private float  humidity;
 
     public Main(double temp, double feels_like, double temp_min, double temp_max, int pressure, int humidity) {
         this.temp = temp;
@@ -58,11 +58,11 @@ public class Main {
         this.pressure = pressure;
     }
 
-    public int getHumidity() {
+    public float getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(float humidity) {
         this.humidity = humidity;
     }
 }
