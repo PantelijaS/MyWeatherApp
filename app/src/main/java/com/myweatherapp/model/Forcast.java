@@ -8,5 +8,5 @@ public class Forcast {
     public int message;
     public int cnt;
     public List<MyList> list;
-    public City city;
+    public CityModel city;
 }

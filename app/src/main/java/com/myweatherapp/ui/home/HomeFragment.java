@@ -91,19 +91,18 @@ public class HomeFragment extends Fragment {
                     public void accept(WeatherModel weatherModel) throws Exception {
                         //load icon
                         Picasso.get().load(new StringBuilder("https://openweathermap.org/img/wn/")
-                                .append(weatherModel.getWeathers().get(0).getIcon())
+                                .append(weatherModel.weather.get(0).icon)
                                 .append(".png").toString()).into(img_weather);
 
-                        text_city_name.setText(weatherModel.getName());
-                        text_city_time.setText(Common.convertToDate(weatherModel.getDt()));
-                        text_city_temperature.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getTemp())).append(" °C"));
-                        text_city_description.setText(new StringBuilder("Weather in ").append(weatherModel.getName()).toString());
-                        text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getPressure())).append(" hpa"));
-                        text_city_humidity.setText(new StringBuilder(String.valueOf(weatherModel.getMain().getHumidity())).append(" %"));
-                        text_city_sunrise.setText(Common.convertToTime(weatherModel.getSys().getSunrise()));
-                        text_city_sunset.setText(Common.convertToTime(weatherModel.getSys().getSunset()));
-//                        text_city_wind.setText(weatherModel.getWind().getSpeed());
-                        Log.e("humid",weatherModel.getMain().getHumidity()+"");
+                        text_city_name.setText(weatherModel.name);
+                        text_city_time.setText(Common.convertToDate(weatherModel.dt));
+                        text_city_temperature.setText(new StringBuilder(String.valueOf(weatherModel.main.temp)).append(" °C"));
+                        text_city_description.setText(new StringBuilder(weatherModel.weather.get(0).description).toString());
+                        text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.main.pressure)).append(" hpa"));
+                        text_city_humidity.setText(new StringBuilder(String.valueOf(weatherModel.main.humidity)).append(" %"));
+                        text_city_sunrise.setText(Common.convertToTime(weatherModel.sys.sunrise));
+                        text_city_sunset.setText(Common.convertToTime(weatherModel.sys.sunset));
+                        text_city_wind.setText(new StringBuffer(String.valueOf(weatherModel.wind.speed)).append("km/h"));
                         progressBar.setVisibility(View.GONE);
                     }
                 }, new Consumer<Throwable>() {

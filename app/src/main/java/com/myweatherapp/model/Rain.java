@@ -1,6 +1,8 @@
 package com.myweatherapp.model;
 
-public class Rain {
+import com.google.gson.annotations.SerializedName;
 
-    public double rain;
+public class Rain {
+    @SerializedName("3h")
+    public float h3;
 }

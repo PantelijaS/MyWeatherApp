@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -17,7 +16,6 @@ import com.myweatherapp.Common;
 import com.myweatherapp.R;
 import com.myweatherapp.adapter.ForecastAdapter;
 import com.myweatherapp.model.Forcast;
-import com.myweatherapp.model.Weather;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
 

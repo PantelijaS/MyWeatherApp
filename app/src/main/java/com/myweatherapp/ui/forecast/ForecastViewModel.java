@@ -1,19 +1,26 @@
 package com.myweatherapp.ui.forecast;
 
+import android.app.Application;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ForecastViewModel extends ViewModel {
+import com.myweatherapp.entity.City;
+import com.myweatherapp.model.Forcast;
+import com.myweatherapp.repository.CityRepository;
 
-    private MutableLiveData<String> mText;
+import java.util.List;
 
-    public ForecastViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
-    }
+public class ForecastViewModel extends AndroidViewModel {
 
-    public LiveData<String> getText() {
-        return mText;
+    private Forcast forcast;
+    private LiveData<List<Forcast>>forcastLiveData;
+
+    public ForecastViewModel(@NonNull Application application) {
+        super(application);
+
     }
 }

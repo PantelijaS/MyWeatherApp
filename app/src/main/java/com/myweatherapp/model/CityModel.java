@@ -1,6 +1,6 @@
 package com.myweatherapp.model;
 
-public class City {
+public class CityModel {
 
     public int id;
     public String name;

@@ -38,17 +38,16 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Recycl
         public void onBindViewHolder(RecyclerViewHolder holder, int position) {
 
             Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
-                                .append(getForcastModel.list.get(position).weather.get(0).getIcon())
+                                .append(getForcastModel.list.get(position).weather.get(0).icon)
                                 .append(".png").toString()).into(holder.imageViewForcast);
             holder.text_day.setText(new StringBuilder(Common.convertToDate(getForcastModel.list.get(position).dt)));
-            holder.text_temperature.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.getTemp())).append(" °C"));
-            holder.text_description.setText(getForcastModel.list.get(position).weather.get(0).getDescription());
-            holder.text_rain.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.getTemp())).append(" %"));
+            holder.text_temperature.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.temp)).append(" °C"));
+            holder.text_description.setText(getForcastModel.list.get(position).weather.get(0).description);
+            holder.text_rain.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.temp)).append(" %"));
         }
 
         @Override
         public int getItemCount() {
-            Log.e("size",getForcastModel.list.size()+"");
             return getForcastModel.list.size();
         }
 
