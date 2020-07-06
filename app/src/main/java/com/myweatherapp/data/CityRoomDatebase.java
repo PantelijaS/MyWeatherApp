@@ -13,7 +13,7 @@ import com.myweatherapp.entity.City;
 import java.util.concurrent.Executors;
 
 
-@Database(entities = {City.class}, version = 1,exportSchema = false)
+@Database(entities = City.class, version = 1,exportSchema = false)
 public abstract class CityRoomDatebase  extends RoomDatabase {
     private static CityRoomDatebase INSTANCE;
 

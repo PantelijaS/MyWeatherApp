@@ -22,7 +22,7 @@ public interface CityDao {
     @Delete
     void delete(City city);
 
-    @Query("SELECT * FROM city")
+    @Query("SELECT * FROM city_table")
     LiveData<List<City>> loadAllCities();
 
 

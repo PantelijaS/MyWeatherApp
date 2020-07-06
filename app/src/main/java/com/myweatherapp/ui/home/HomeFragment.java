@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import com.myweatherapp.Common;
+import com.myweatherapp.units.Common;
 import com.myweatherapp.R;
 import com.myweatherapp.model.WeatherModel;
 import com.myweatherapp.remote.APIService;

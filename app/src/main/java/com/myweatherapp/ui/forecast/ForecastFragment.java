@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.myweatherapp.Common;
+import com.myweatherapp.units.Common;
 import com.myweatherapp.R;
 import com.myweatherapp.adapter.ForecastAdapter;
 import com.myweatherapp.model.Forcast;

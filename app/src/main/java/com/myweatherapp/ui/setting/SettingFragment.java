@@ -39,7 +39,7 @@ public class SettingFragment extends Fragment {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        citiesAdapter = new CitiesAdapter(getActivity(),cities);
+        citiesAdapter = new CitiesAdapter();
         recyclerView.setAdapter(citiesAdapter);
 
         citiesViewModel.getAllCities().observe(getViewLifecycleOwner(), new Observer<List<City>>() {

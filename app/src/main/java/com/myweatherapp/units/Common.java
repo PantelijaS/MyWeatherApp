@@ -1,4 +1,4 @@
-package com.myweatherapp;
+package com.myweatherapp.units;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
