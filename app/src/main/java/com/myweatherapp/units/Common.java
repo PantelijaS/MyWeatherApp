@@ -10,7 +10,7 @@ public class Common {
 
     public static String convertToDate (long dateParams){
         Date date = new Date(dateParams*1000l);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEEE mm  yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEEE yyyy");
         String format = simpleDateFormat.format(date);
         return format;
     }

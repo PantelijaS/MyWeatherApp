@@ -72,6 +72,7 @@ public class CitiesAdapter extends RecyclerView.Adapter<CitiesAdapter.RecyclerVi
                 @Override
                 public void onClick(View view) {
                     onCitiesListener.OnCityClick(cities.get(getAdapterPosition()));
+                    Log.e("pozicija",cities.get(getAdapterPosition())+"");
                 }
             });
         }

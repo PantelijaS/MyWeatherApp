@@ -2,6 +2,7 @@ package com.myweatherapp.ui.setting;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +89,6 @@ public class SettingFragment extends Fragment implements CitiesAdapter.OnCitiesL
 
     @Override
     public void OnCityClick(City city) {
-        
+        Log.e("cityyy",city.getCityName()) ;
     }
 }
