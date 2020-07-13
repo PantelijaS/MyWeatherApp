@@ -14,10 +14,10 @@ public class City {
     public String cityName;
 
 
-    public City(int id,String cityName) {
-        this.id=id;
+    public City(String cityName) {
         this.cityName = cityName;
     }
+
 
     public int getId() {
         return id;
@@ -37,10 +37,10 @@ public class City {
 
     public static City[] populateCity() {
         return new City[] {
-                new City(1,"London"),
-                new City(2,"New York"),
-                new City(3,"Belgrade"),
-                new City(4,"Barselona")
+                new City("London"),
+                new City("New York"),
+                new City("Belgrade"),
+                new City("Barselona")
         };
     }
 }

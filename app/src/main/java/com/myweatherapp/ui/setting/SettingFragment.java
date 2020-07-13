@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,12 @@ public class SettingFragment extends Fragment {
     @BindView(R.id.recycleview_cities)
     public RecyclerView recyclerView;
 
+    @BindView(R.id.imageButton_add)
+    ImageButton addCities;
+
+    @BindView(R.id.text_add_name_cities)
+    EditText addCityName;
+
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         citiesViewModel = ViewModelProviders.of(this).get(SettingViewModel.class);
         View view = inflater.inflate(R.layout.fragment_setings, container, false);
@@ -49,7 +57,15 @@ public class SettingFragment extends Fragment {
             }
         });
 
+        addCities.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String cityName = addCityName.getText().toString().trim();
+                City city = new City(cityName);
+                citiesViewModel.insert(city);
 
+            }
+        });
 
         return view;
     }
