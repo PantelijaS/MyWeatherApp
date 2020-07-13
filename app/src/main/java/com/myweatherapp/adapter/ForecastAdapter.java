@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.myweatherapp.units.Common;
 import com.myweatherapp.R;
 import com.myweatherapp.model.Forcast;
+import com.myweatherapp.units.Common;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -39,8 +39,8 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Recycl
             Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
                                 .append(getForcastModel.list.get(position).weather.get(0).icon)
                                 .append(".png").toString()).into(holder.imageViewForcast);
-            holder.text_day.setText(new StringBuilder(Common.convertToDate(getForcastModel.list.get(position).dt)));
-            holder.text_temperature.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.temp)).append(" °C"));
+            holder.text_day.setText(new StringBuilder(Common.convertToDateForecast(getForcastModel.list.get(position).dt)));
+            holder.text_temperature.setText(new StringBuilder(String.valueOf(Common.convertToInt(getForcastModel.list.get(position).main.temp))).append(" °C"));
             holder.text_description.setText(getForcastModel.list.get(position).weather.get(0).description);
             holder.text_rain.setText(new StringBuilder(String.valueOf(getForcastModel.list.get(position).main.temp)).append(" %"));
         }

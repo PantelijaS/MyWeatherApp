@@ -11,13 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.myweatherapp.units.Common;
 import com.myweatherapp.R;
 import com.myweatherapp.adapter.ForecastAdapter;
 import com.myweatherapp.model.Forcast;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
+import com.myweatherapp.units.Common;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +40,8 @@ public class ForecastFragment extends Fragment {
 
     @BindView(R.id.recycleview_forcast)
     public RecyclerView recyclerView;
+    @BindView(R.id.swipe_refresh_layout)
+    public SwipeRefreshLayout swipeRefreshLayout;
 
     private ForecastAdapter forcastAdapter;
 
@@ -51,7 +54,13 @@ public class ForecastFragment extends Fragment {
         compositeDisposable = new CompositeDisposable();
         Retrofit retrofit = RestApiClient.getInstance();
         apiService = retrofit.create(APIService.class);
-
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+            forcastAdapter.notifyDataSetChanged();
+            swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         getForcastFragment();
 
         return view;

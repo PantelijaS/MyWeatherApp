@@ -1,8 +1,8 @@
 package com.myweatherapp.units;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 public class Common {
 
@@ -24,8 +24,14 @@ public class Common {
 
     public static String convertToDateForecast (long dateParams){
         Date date = new Date(dateParams*1000l);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd MM  ");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEEE ");
         String format = simpleDateFormat.format(date);
         return format;
+    }
+
+    public static int convertToInt (double tempParams){
+        DecimalFormat formatter = new DecimalFormat("#0");
+        int  temp = Integer.parseInt(formatter.format(tempParams));
+        return temp;
     }
 }

@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.myweatherapp.ui.setting.SettingFragment"
+        android:name="com.myweatherapp.ui.settings.SettingFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_setings" />
 </navigation>

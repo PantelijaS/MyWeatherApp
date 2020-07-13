@@ -1,17 +1,13 @@
-package com.myweatherapp.ui.setting;
+package com.myweatherapp.ui.settings;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -22,14 +18,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.myweatherapp.R;
 import com.myweatherapp.adapter.CitiesAdapter;
 import com.myweatherapp.entity.City;
-import com.myweatherapp.ui.home.HomeFragment;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SettingFragment extends Fragment implements CitiesAdapter.OnCitiesListener{
+public class SettingFragment extends Fragment  implements CitiesAdapter.OnCitiesListener  {
 
     private SettingViewModel citiesViewModel;
     private CitiesAdapter citiesAdapter;
@@ -76,7 +71,7 @@ public class SettingFragment extends Fragment implements CitiesAdapter.OnCitiesL
         addCities.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String cityName =  addCityName.getText().toString().trim();
+                String cityName = addCityName.getText().toString().trim();
                 City city = new City(cityName);
                 citiesViewModel.insert(city);
 
@@ -88,6 +83,6 @@ public class SettingFragment extends Fragment implements CitiesAdapter.OnCitiesL
 
     @Override
     public void OnCityClick(City city) {
-        
+
     }
 }

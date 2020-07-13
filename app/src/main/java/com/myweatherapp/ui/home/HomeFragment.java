@@ -9,15 +9,18 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
-import com.myweatherapp.units.Common;
+
 import com.myweatherapp.R;
 import com.myweatherapp.model.WeatherModel;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
+import com.myweatherapp.units.Common;
 import com.squareup.picasso.Picasso;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -96,7 +99,7 @@ public class HomeFragment extends Fragment {
 
                         text_city_name.setText(weatherModel.name);
                         text_city_time.setText(Common.convertToDate(weatherModel.dt));
-                        text_city_temperature.setText(new StringBuilder(String.valueOf(weatherModel.main.temp)).append(" °C"));
+                        text_city_temperature.setText(new StringBuilder(String.valueOf(Common.convertToInt(weatherModel.main.temp))).append(" °C"));
                         text_city_description.setText(new StringBuilder(weatherModel.weather.get(0).description).toString());
                         text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.main.pressure)).append(" hpa"));
                         text_city_humidity.setText(new StringBuilder(String.valueOf(weatherModel.main.humidity)).append(" %"));

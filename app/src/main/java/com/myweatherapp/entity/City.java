@@ -4,8 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "city_table")
-public class City {
+public class City implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
@@ -17,7 +19,6 @@ public class City {
     public City(String cityName) {
         this.cityName = cityName;
     }
-
 
     public int getId() {
         return id;

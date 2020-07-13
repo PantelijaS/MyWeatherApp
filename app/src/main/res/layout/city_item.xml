@@ -12,7 +12,6 @@
     android:layout_marginStart="8dp"
     >
 
-    <!-- Main Content View -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,18 +19,11 @@
 
         <TextView
             android:id="@+id/text_name_cities"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@+id/imageButton_delete"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <ImageView
-            android:id="@+id/imageButton_delete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            card_view:srcCompat="@android:drawable/ic_delete" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
