@@ -53,8 +53,8 @@ public class HomeFragment extends Fragment {
     TextView text_city_sunrise;
     @BindView(R.id.text_city_sunset)
     TextView text_city_sunset;
-    @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
+//    @BindView(R.id.progress_bar)
+//    ProgressBar progressBar;
 
     private Unbinder unbinder;
     private HomeViewModel homeViewModel;
@@ -103,12 +103,12 @@ public class HomeFragment extends Fragment {
                         text_city_time.setText(Common.convertToDate(weatherModel.dt));
                         text_city_temperature.setText(new StringBuilder(String.valueOf(Common.convertToInt(weatherModel.main.temp))).append(" °C"));
                         text_city_description.setText(new StringBuilder(weatherModel.weather.get(0).description).toString());
-                        text_city_pressure.setText(new StringBuilder(String.valueOf(weatherModel.main.pressure)).append(" hpa"));
-                        text_city_humidity.setText(new StringBuilder(String.valueOf(weatherModel.main.humidity)).append(" %"));
+                        text_city_pressure.setText(new StringBuilder(String.valueOf(Common.convertToInt(weatherModel.main.pressure))).append(" hpa"));
+                        text_city_humidity.setText(new StringBuilder(String.valueOf(Common.convertToInt(weatherModel.main.humidity))).append(" %"));
                         text_city_sunrise.setText(Common.convertToTime(weatherModel.sys.sunrise));
                         text_city_sunset.setText(Common.convertToTime(weatherModel.sys.sunset));
-                        text_city_wind.setText(new StringBuffer(String.valueOf(weatherModel.wind.speed)).append("km/h"));
-                        progressBar.setVisibility(View.GONE);
+                        text_city_wind.setText(new StringBuffer(String.valueOf(weatherModel.wind.speed)).append(" m/h"));
+//                        progressBar.setVisibility(View.GONE);
                     }
                 }, new Consumer<Throwable>() {
                     @Override

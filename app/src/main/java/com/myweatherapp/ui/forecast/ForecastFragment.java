@@ -19,6 +19,7 @@ import com.myweatherapp.model.Forcast;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
 import com.myweatherapp.units.Common;
+import com.myweatherapp.units.SetUp;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -67,7 +68,7 @@ public class ForecastFragment extends Fragment {
     }
 
     private void getForcastFragment() {
-        compositeDisposable.add(apiService.getForcastModel("Belgrade",String.valueOf(Common.API_ID),"metric")
+        compositeDisposable.add(apiService.getForcastModel(SetUp.returnCityName(getActivity()),String.valueOf(Common.API_ID),"metric")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Forcast>() {
