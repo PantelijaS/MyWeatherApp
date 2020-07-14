@@ -24,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SettingFragment extends Fragment  implements CitiesAdapter.OnCitiesListener  {
+public class SettingFragment extends Fragment {
 
     private SettingViewModel citiesViewModel;
     private CitiesAdapter citiesAdapter;
@@ -46,7 +46,7 @@ public class SettingFragment extends Fragment  implements CitiesAdapter.OnCities
 
         citiesRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         citiesRecyclerView.setHasFixedSize(true);
-        citiesAdapter = new CitiesAdapter(this);
+        citiesAdapter = new CitiesAdapter();
         citiesRecyclerView.setAdapter(citiesAdapter);
 
         citiesViewModel.getAllCities().observe(getViewLifecycleOwner(), new Observer<List<City>>() {
@@ -79,10 +79,5 @@ public class SettingFragment extends Fragment  implements CitiesAdapter.OnCities
         });
 
         return view;
-    }
-
-    @Override
-    public void OnCityClick(City city) {
-
     }
 }
