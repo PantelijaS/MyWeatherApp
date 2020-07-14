@@ -36,9 +36,10 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Recycl
         @Override
         public void onBindViewHolder(RecyclerViewHolder holder, int position) {
 
-            Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
-                                .append(getForcastModel.list.get(position).weather.get(0).icon)
-                                .append(".png").toString()).into(holder.imageViewForcast);
+            Picasso.get().load(new StringBuilder(Common.URL)
+                         .append(getForcastModel.list.get(position).weather.get(0).icon)
+                         .append(".png").toString()).into(holder.imageViewForcast);
+
             holder.text_day.setText(new StringBuilder(Common.convertToDateForecast(getForcastModel.list.get(position).dt)));
             holder.text_temperature.setText(new StringBuilder(String.valueOf(Common.convertToInt(getForcastModel.list.get(position).main.temp))).append(" °C"));
             holder.text_description.setText(getForcastModel.list.get(position).weather.get(0).description);

@@ -19,6 +19,7 @@ import com.myweatherapp.model.WeatherModel;
 import com.myweatherapp.remote.APIService;
 import com.myweatherapp.remote.RestApiClient;
 import com.myweatherapp.units.Common;
+import com.myweatherapp.units.SetUp;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
@@ -54,10 +55,9 @@ public class HomeFragment extends Fragment {
     TextView text_city_sunset;
     @BindView(R.id.progress_bar)
     ProgressBar progressBar;
+
     private Unbinder unbinder;
-
     private HomeViewModel homeViewModel;
-
     CompositeDisposable compositeDisposable;
     APIService apiService;
 
@@ -71,6 +71,8 @@ public class HomeFragment extends Fragment {
         compositeDisposable = new CompositeDisposable();
         Retrofit retrofit = RestApiClient.getInstance();
         apiService = retrofit.create(APIService.class);
+
+
 
         getWeather();
 
@@ -86,16 +88,16 @@ public class HomeFragment extends Fragment {
 
     public void getWeather(){
 
-        compositeDisposable.add(apiService.getWeatherModel("Belgrade",String.valueOf(Common.API_ID),"metric")
+        compositeDisposable.add(apiService.getWeatherModel(SetUp.returnCityName(getActivity()),String.valueOf(Common.API_ID),"metric")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<WeatherModel>() {
                     @Override
                     public void accept(WeatherModel weatherModel) throws Exception {
                         //load icon
-                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/wn/")
-                                .append(weatherModel.weather.get(0).icon)
-                                .append(".png").toString()).into(img_weather);
+                        Picasso.get().load(new StringBuilder(Common.URL)
+                                     .append(weatherModel.weather.get(0).icon)
+                                     .append(".png").toString()).into(img_weather);
 
                         text_city_name.setText(weatherModel.name);
                         text_city_time.setText(Common.convertToDate(weatherModel.dt));

@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.myweatherapp.adapter.CitiesAdapter;
 import com.myweatherapp.entity.City;
+import com.myweatherapp.units.SetUp;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.bottom_nav_view)
     BottomNavigationView navView;
 
+    private String cityName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +63,14 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupWithNavController(navigationView, navController);
-
         NavigationUI.setupWithNavController(navView, navController);
+
+        final Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            cityName = extras.getString("cityName");
+            SetUp.saveCityName(this,cityName);
+        }
+
     }
 
 

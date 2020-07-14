@@ -7,6 +7,7 @@ import java.util.Date;
 public class Common {
 
     public static final String API_ID="f2ede1f5f104f2b1a5518f30d7b475ca";
+    public static final String URL ="https://openweathermap.org/img/wn/";
 
     public static String convertToDate (long dateParams){
         Date date = new Date(dateParams*1000l);
